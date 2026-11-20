@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Registro {
+  id                  Int      @id @default(autoincrement())
+  modalidad           String   // "PERSONA" | "FAMILIA" | "GRUPO"
+  identificador       String   @unique
+  integrantes         String?  // JSON opcional si es GRUPO
+  cantidad            Int      // Total de asistentes
+  contacto            String   @unique
+  notificar           Boolean  @default(false)
+  recordatorioEnviado Boolean  @default(false)
+  creadoEn            DateTime @default(now())
+}
