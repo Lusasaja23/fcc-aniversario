@@ -47,7 +47,7 @@ export default function AniversarioPage() {
       <footer className="z-20 flex shrink-0 items-center justify-center border-t border-[#D4AF37]/15 bg-[#041322]/70 px-6 py-2.5 text-xs text-sky-200/65 backdrop-blur-sm">
         <span className="inline-flex items-center gap-1.5 tracking-wide">
           <span className="text-sm leading-none text-[#D4AF37]">&copy;</span>
-          <span>Filadelfia Cuerpo de Cristo</span>
+          <span>Filadelfia Cuerpo de Cristo 2026</span>
         </span>
       </footer>
     </div>
