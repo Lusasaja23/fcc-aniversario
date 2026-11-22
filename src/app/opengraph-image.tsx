@@ -67,7 +67,16 @@ export default async function Image() {
               style={{ objectFit: "cover" }}
             />
           ) : (
-            <img src="/favicon.svg" alt="" />
+            <span
+              style={{
+                color: "#F3D57B",
+                fontSize: "96px",
+                fontWeight: 800,
+                fontFamily: "Georgia, serif",
+              }}
+            >
+              CAM
+            </span>
           )}
         </div>
       </div>
