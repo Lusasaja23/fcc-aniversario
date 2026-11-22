@@ -38,8 +38,8 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <section className="relative flex h-full w-full items-center overflow-hidden px-4 py-2 sm:px-10 lg:px-14 xl:px-20">
-      {/* ======= FOTOS DECORATIVAS EN ESQUINAS IZQUIERDAS (SOLO ESCRITORIO GRANDE) ======= */}
+    <section className="relative flex h-full w-full items-center overflow-hidden px-5 py-3 sm:px-10 lg:px-14 xl:px-20">
+      {/* ======= FOTOS DECORATIVAS EN ESQUINAS IZQUIERDAS (ESCRITORIO GRANDE) ======= */}
       <div className="pointer-events-none absolute -left-8 -top-6 hidden xl:block">
         <div className="animate-float-slow">
           <div className="h-36 w-52 -rotate-6 overflow-hidden rounded-2xl border border-[#D4AF37]/40 bg-[#0A2744]/60 p-1.5 shadow-2xl backdrop-blur-sm">
@@ -64,27 +64,25 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
         </div>
       </div>
 
-      {/* ======= GRID PRINCIPAL (PANTALLA COMPLETA EN PC / ADAPTADO EN MOBILE) ======= */}
+      {/* ======= GRID PRINCIPAL ======= */}
       <div className="relative z-10 grid h-full w-full grid-cols-1 items-center lg:grid-cols-12 lg:gap-8">
         
-        {/* COLUMNA PRINCIPAL (CENTRADA EN MOBILE Y ALINEADA EN SU PROPIO EJE EN PC) */}
-        <div className="mx-auto flex h-full w-full max-w-xl flex-col items-center justify-evenly text-center sm:justify-center sm:gap-5 lg:col-span-7">
+        {/* COLUMNA PRINCIPAL CALIBRADA PARA 393x852 (IPHONE) Y DESKTOP */}
+        <div className="mx-auto flex h-full max-h-[760px] w-full max-w-xl flex-col items-center justify-between py-2 text-center min-[390px]:py-4 sm:max-h-none sm:justify-center sm:gap-6 sm:py-0 lg:col-span-7">
           
-          {/* ENCABEZADO CENTRADO: LOGO + INSIGNIA + SUBTÍTULO */}
+          {/* 1. BLOQUE SUPERIOR: ESCUDO PROTAGONISTA + INSIGNIA REFINADA */}
           <div className="flex flex-col items-center justify-center gap-2.5 sm:flex-row sm:gap-4">
-            {/* Contenedor circular del Logo con respaldo SVG centrado */}
-            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[#D4AF37] bg-[#092644] p-0.5 shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:h-20 sm:w-20">
+            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[#D4AF37] bg-[#092644] p-0.5 shadow-[0_0_32px_rgba(212,175,55,0.38)] min-[390px]:h-[76px] min-[390px]:w-[76px] sm:h-20 sm:w-20">
               <div className="pointer-events-none absolute -inset-1.5 rounded-full border border-[#D4AF37]/35" />
               <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#08223E]">
                 {!logoError ? (
                   <img
                     src="/logo.svg"
-                    alt="Logo FCC"
+                    alt="Logo CAM"
                     onError={() => setLogoError(true)}
                     className="h-full w-full scale-[1.04] object-cover"
                   />
                 ) : (
-                  /* Emblema vectorial centrado de respaldo si public/logo.jpg aún no existe */
                   <svg viewBox="0 0 100 100" className="h-full w-full">
                     <circle
                       cx="50"
@@ -118,28 +116,28 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
               </div>
             </div>
 
-            {/* Textos centrados entre sí */}
             <div className="flex flex-col items-center text-center">
-              <span className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#D4AF37]/45 bg-[#D4AF37]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#F3D57B] sm:px-4 sm:text-xs sm:tracking-[0.18em]">
+              <span className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#D4AF37]/45 bg-[#D4AF37]/10 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.13em] text-[#F3D57B] sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                 <Sparkles className="h-3 w-3 shrink-0 text-[#D4AF37] sm:h-3.5 sm:w-3.5" />
                 <span>Celebramos nuestro aniversario</span>
               </span>
-              <span className="mt-1.5 text-[10px] font-medium tracking-[0.2em] text-sky-200/75 sm:text-xs">
+              <span className="mt-1.5 text-[9.5px] font-semibold tracking-[0.2em] text-sky-200/75 sm:text-xs">
                 ✦ RESPALDO Y FIDELIDAD DE DIOS ✦
               </span>
             </div>
           </div>
 
-          {/* TÍTULO EN ARCO CENTRADO JUSTO ARRIBA DE "22 AÑOS" */}
-          <div className="flex flex-col items-center">
+          {/* 2. BLOQUE CENTRAL UNIFICADO: TÍTULOS + MENSAJE + BOTÓN CON RITMO EDITORIAL */}
+          <div className="flex w-full flex-col items-center">
+            {/* Arco suave con aire real debajo de sus puntas */}
             <svg
-              viewBox="0 0 520 122"
-              className="w-[285px] overflow-visible min-[390px]:w-[320px] sm:w-[420px] xl:w-[470px]"
+              viewBox="0 0 600 82"
+              className="w-[310px] overflow-visible min-[390px]:w-[348px] sm:w-[465px] xl:w-[515px]"
             >
               <defs>
                 <path
-                  id="arcoFiladelfia"
-                  d="M 20,112 Q 260,10 500,112"
+                  id="arcoCAM"
+                  d="M 24,68 Q 300,8 576,68"
                   fill="transparent"
                 />
                 <linearGradient id="doradoArco" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -150,86 +148,92 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
               </defs>
               <text
                 fill="url(#doradoArco)"
-                className="text-[19.5px] font-bold uppercase tracking-[0.22em] drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]"
+                className="text-[17.5px] font-bold uppercase tracking-[0.18em] drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]"
               >
                 <textPath
-                  href="#arcoFiladelfia"
+                  href="#arcoCAM"
                   startOffset="50%"
                   textAnchor="middle"
                 >
-                  ✦ Filadelfia Cuerpo de Cristo ✦
+                  ✦ Centro de Avivamiento Mundial ✦
                 </textPath>
               </text>
             </svg>
 
-            <h1 className="gold-text-gradient -mt-7 text-center font-serif text-5xl font-extrabold leading-none tracking-tight drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] min-[390px]:text-6xl sm:-mt-10 sm:text-7xl xl:text-8xl">
+            {/* Subtítulo recto enmarcado con filetes dorados y separado del arco */}
+            <div className="mt-1 flex items-center justify-center gap-2 sm:mt-0.5">
+              <span className="h-[1px] w-5 bg-gradient-to-r from-transparent to-[#D4AF37]/70 min-[390px]:w-7" />
+              <p className="text-center text-[11px] font-extrabold uppercase tracking-[0.2em] text-sky-100/95 drop-shadow min-[390px]:text-[12.5px] min-[390px]:tracking-[0.22em] sm:text-sm sm:tracking-[0.28em]">
+                Filadelfia Cuerpo de Cristo
+              </p>
+              <span className="h-[1px] w-5 bg-gradient-to-l from-transparent to-[#D4AF37]/70 min-[390px]:w-7" />
+            </div>
+
+            {/* 22 Años con presencia fuerte en 393px */}
+            <h1 className="gold-text-gradient mt-2 text-center font-serif text-5xl font-extrabold leading-none tracking-tight drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] min-[390px]:mt-2.5 min-[390px]:text-[64px] sm:mt-3 sm:text-7xl xl:text-8xl">
               22 Años
             </h1>
 
-            {/* Divisor dorado sutil centrado */}
-            <div className="mt-2.5 h-[2px] w-28 rounded-full bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent sm:mt-3 sm:w-40" />
+            <div className="mt-3 h-[2px] w-28 rounded-full bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent min-[390px]:w-36 sm:w-44" />
+
+            {/* Párrafo cercano al título para evitar vacíos oscuros */}
+            <p className="mt-4 max-w-[310px] text-balance text-[14px] leading-relaxed text-sky-50/90 min-[390px]:mt-5 min-[390px]:max-w-[340px] min-[390px]:text-[15.5px] sm:max-w-md sm:text-lg">
+              Te invitamos a conmemorar con nosotros esta fecha y agradecer a
+              Dios los años de respaldo.
+            </p>
+
+            {/* Botón amplio y proporcionado al ancho de 393px */}
+            <div className="mt-5 flex w-full justify-center min-[390px]:mt-6">
+              <button
+                type="button"
+                onClick={onContinuar}
+                className="btn-shimmer group relative inline-flex w-full max-w-[270px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-2xl border border-[#FFF2BE]/60 bg-gradient-to-r from-[#C8992D] via-[#E8C564] to-[#D4AF37] px-8 py-3.5 text-base font-extrabold tracking-wide text-[#061A2E] shadow-[0_10px_35px_rgba(212,175,55,0.38)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_14px_50px_rgba(212,175,55,0.55)] active:scale-[0.98] min-[390px]:max-w-[300px] min-[390px]:py-4 min-[390px]:text-[17px] sm:max-w-[310px] sm:px-10 sm:text-xl"
+              >
+                <span>Estaré Ahí</span>
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
+              </button>
+            </div>
           </div>
 
-          {/* TEXTO DE INVITACIÓN CENTRADO */}
-          <p className="max-w-xs text-balance text-sm leading-relaxed text-sky-50/90 min-[390px]:max-w-sm sm:max-w-md sm:text-lg">
-            Te invitamos a conmemorar con nosotros esta fecha y agradecer a
-            Dios los años de respaldo.
-          </p>
-
-          {/* BOTÓN GRANDE "ESTARÉ AHÍ" */}
-          <div className="flex w-full justify-center">
-            <button
-              type="button"
-              onClick={onContinuar}
-              className="btn-shimmer group relative inline-flex w-full max-w-[260px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-2xl border border-[#FFF2BE]/60 bg-gradient-to-r from-[#C8992D] via-[#E8C564] to-[#D4AF37] px-8 py-3.5 text-base font-extrabold tracking-wide text-[#061A2E] shadow-[0_10px_35px_rgba(212,175,55,0.38)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_14px_50px_rgba(212,175,55,0.55)] active:scale-[0.98] sm:max-w-[290px] sm:px-10 sm:py-4 sm:text-xl"
-            >
-              <span>Estaré Ahí</span>
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
-            </button>
-          </div>
-
-          {/* ABANICO DE COLLAGE ADAPTADO A MOBILE / TABLET (< lg) */}
-          <div className="relative flex w-full max-w-sm items-center justify-center pt-1 lg:hidden">
-            {/* Foto Izquierda */}
-            <div className="collage-card relative -mr-3 h-20 w-28 -rotate-6 overflow-hidden rounded-xl border border-[#D4AF37]/45 bg-[#0A2744] p-1 shadow-xl min-[390px]:h-24 min-[390px]:w-32">
+          {/* 3. ABANICO DE FOTOS INFERIOR CON MAYOR PRESENCIA EN 393x852 */}
+          <div className="relative flex w-full max-w-[360px] items-center justify-center pb-1 pt-1 lg:hidden">
+            <div className="collage-card relative -mr-3.5 h-20 w-28 -rotate-6 overflow-hidden rounded-2xl border border-[#D4AF37]/45 bg-[#0A2744] p-1 shadow-xl min-[390px]:h-[98px] min-[390px]:w-[126px]">
               <img
                 src={FOTOS_COLLAGE[0].url}
                 alt={FOTOS_COLLAGE[0].etiqueta}
-                className="h-full w-full rounded-lg object-cover"
+                className="h-full w-full rounded-xl object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#061A2E]/75 via-transparent to-transparent" />
             </div>
 
-            {/* Foto Central Destacada */}
-            <div className="collage-card relative z-20 -translate-y-1.5 h-24 w-32 overflow-hidden rounded-xl border-2 border-[#D4AF37]/75 bg-[#08223E] p-1 shadow-[0_12px_30px_rgba(0,0,0,0.65)] min-[390px]:h-28 min-[390px]:w-36">
+            <div className="collage-card relative z-20 -translate-y-2 h-24 w-32 overflow-hidden rounded-2xl border-2 border-[#D4AF37]/80 bg-[#08223E] p-1 shadow-[0_14px_34px_rgba(0,0,0,0.7)] min-[390px]:h-[116px] min-[390px]:w-[148px]">
               <img
                 src={FOTOS_COLLAGE[5].url}
                 alt={FOTOS_COLLAGE[5].etiqueta}
-                className="h-full w-full rounded-lg object-cover"
+                className="h-full w-full rounded-xl object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061A2E]/85 via-transparent to-transparent" />
-              <span className="absolute bottom-1.5 inset-x-1 text-center text-[9px] font-bold text-[#F3D57B]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#061A2E]/90 via-transparent to-transparent" />
+              <span className="absolute inset-x-1 bottom-2 text-center text-[9.5px] font-bold tracking-wide text-[#F3D57B]">
                 ✦ 22 Años de Gloria
               </span>
             </div>
 
-            {/* Foto Derecha */}
-            <div className="collage-card relative -ml-3 h-20 w-28 rotate-6 overflow-hidden rounded-xl border border-[#D4AF37]/45 bg-[#0A2744] p-1 shadow-xl min-[390px]:h-24 min-[390px]:w-32">
+            <div className="collage-card relative -ml-3.5 h-20 w-28 rotate-6 overflow-hidden rounded-2xl border border-[#D4AF37]/45 bg-[#0A2744] p-1 shadow-xl min-[390px]:h-[98px] min-[390px]:w-[126px]">
               <img
                 src={FOTOS_COLLAGE[1].url}
                 alt={FOTOS_COLLAGE[1].etiqueta}
-                className="h-full w-full rounded-lg object-cover"
+                className="h-full w-full rounded-xl object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#061A2E]/75 via-transparent to-transparent" />
             </div>
           </div>
         </div>
 
-        {/* COLUMNA DERECHA (5 COLUMNAS): COLLAGE INTERACTIVO EN ESCRITORIO */}
+        {/* COLUMNA DERECHA: COLLAGE INTERACTIVO EN ESCRITORIO */}
         <div className="relative hidden h-[82%] w-full lg:col-span-5 lg:block">
           <div className="pointer-events-none absolute inset-10 rounded-full bg-[#D4AF37]/15 blur-3xl" />
 
-          {/* Tarjeta 1: Arriba Izquierda */}
+          {/* Tarjeta 1 */}
           <div className="animate-float-slow absolute left-0 top-2 z-20 w-[54%] hover:z-40">
             <div className="collage-card group -rotate-3 cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/45 bg-[#0B2B4C]/80 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.55)] backdrop-blur-md hover:rotate-0 hover:scale-[1.04] hover:border-[#F3D57B] hover:shadow-[0_25px_60px_rgba(212,175,55,0.28)]">
               <div className="relative h-40 overflow-hidden rounded-xl xl:h-48">
@@ -246,7 +250,7 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
             </div>
           </div>
 
-          {/* Tarjeta 2: Arriba Derecha */}
+          {/* Tarjeta 2 */}
           <div className="animate-float-reverse absolute right-0 top-8 z-10 w-[50%] hover:z-40">
             <div className="collage-card group rotate-3 cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/40 bg-[#0B2B4C]/80 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.55)] backdrop-blur-md hover:rotate-0 hover:scale-[1.04] hover:border-[#F3D57B] hover:shadow-[0_25px_60px_rgba(212,175,55,0.28)]">
               <div className="relative h-36 overflow-hidden rounded-xl xl:h-44">
@@ -263,7 +267,7 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
             </div>
           </div>
 
-          {/* Tarjeta 3: Centro Protagonista */}
+          {/* Tarjeta 3 */}
           <div className="animate-float-slow absolute left-[16%] top-[34%] z-30 w-[66%] hover:z-40">
             <div className="collage-card group rotate-1 cursor-pointer overflow-hidden rounded-2xl border-2 border-[#D4AF37]/70 bg-[#08223E]/90 p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.7)] backdrop-blur-md hover:rotate-0 hover:scale-[1.04] hover:border-[#FFF2BE] hover:shadow-[0_28px_65px_rgba(212,175,55,0.35)]">
               <div className="relative h-44 overflow-hidden rounded-xl xl:h-52">
@@ -285,14 +289,14 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
             </div>
           </div>
 
-          {/* Tarjeta 4: Abajo Izquierda */}
+          {/* Tarjeta 4 */}
           <div className="animate-float-reverse absolute bottom-2 left-2 z-20 w-[48%] hover:z-40">
             <div className="collage-card group rotate-2 cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/40 bg-[#0B2B4C]/80 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.55)] backdrop-blur-md hover:rotate-0 hover:scale-[1.04] hover:border-[#F3D57B] hover:shadow-[0_25px_60px_rgba(212,175,55,0.28)]">
               <div className="relative h-32 overflow-hidden rounded-xl xl:h-40">
                 <img
                   src={FOTOS_COLLAGE[3].url}
                   alt={FOTOS_COLLAGE[3].etiqueta}
-                  className="collage-img h-full w-full object-cover group-hover:scale-108"
+                  className="h-full w-full object-cover group-hover:scale-108"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#061A2E]/85 via-transparent to-transparent" />
                 <span className="absolute bottom-2 left-3 text-xs font-semibold text-[#F3D57B]">
@@ -302,7 +306,7 @@ export default function VistaInvitacion({ onContinuar }: VistaInvitacionProps) {
             </div>
           </div>
 
-          {/* Tarjeta 5: Abajo Derecha */}
+          {/* Tarjeta 5 */}
           <div className="animate-float-slow absolute bottom-4 right-1 z-20 w-[46%] hover:z-40">
             <div className="collage-card group -rotate-3 cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/45 bg-[#0B2B4C]/80 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.55)] backdrop-blur-md hover:rotate-0 hover:scale-[1.04] hover:border-[#F3D57B] hover:shadow-[0_25px_60px_rgba(212,175,55,0.28)]">
               <div className="relative h-32 overflow-hidden rounded-xl xl:h-36">
