@@ -11,9 +11,19 @@ export const contentType = "image/png";
 
 export default async function Image() {
   let logoSrc: string | null = null;
+
   try {
-    const logoBuffer = await readFile(join(process.cwd(), "public", "logo.jpg"));
-    logoSrc = `data:image/jpeg;base64,${logoBuffer.toString("base64")}`;
+    let svgText = await readFile(
+      join(process.cwd(), "public", "favicon.svg"),
+      "utf-8"
+    );
+
+    // Asegura que <svg> tenga width y height explícitos (requisito de next/og)
+    if (!/\bwidth=/.test(svgText)) {
+      svgText = svgText.replace("<svg", '<svg width="512" height="512"');
+    }
+
+    logoSrc = `data:image/svg+xml;base64,${Buffer.from(svgText).toString("base64")}`;
   } catch {
     logoSrc = null;
   }
@@ -32,7 +42,7 @@ export default async function Image() {
           position: "relative",
         }}
       >
-        {/* Halo dorado suave alrededor del escudo */}
+        {/* Halo dorado exterior */}
         <div
           style={{
             position: "absolute",
@@ -44,13 +54,13 @@ export default async function Image() {
           }}
         />
 
-        {/* Escudo central grande (ocupa todo el recorte cuadrado de WhatsApp sin cortarse) */}
+        {/* Contenedor circular con tu favicon.svg */}
         <div
           style={{
             width: "460px",
             height: "460px",
             borderRadius: "999px",
-            border: "6px solid #D4AF37",
+            border: "5px solid #D4AF37",
             background: "#08223E",
             display: "flex",
             alignItems: "center",
@@ -62,9 +72,9 @@ export default async function Image() {
           {logoSrc ? (
             <img
               src={logoSrc}
-              width="482"
-              height="482"
-              style={{ objectFit: "cover" }}
+              width="460"
+              height="460"
+              style={{ objectFit: "contain" }}
             />
           ) : (
             <span
