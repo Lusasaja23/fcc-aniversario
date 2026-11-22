@@ -36,8 +36,8 @@ export const metadata: Metadata = {
       "Te invitamos a conmemorar con nosotros esta fecha especial. Toca aquí para reservar tu lugar.",
   },
   icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.svg",
+    apple: "/logo.svg",
   },
 };
 
